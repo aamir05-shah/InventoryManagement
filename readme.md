@@ -6,30 +6,32 @@ Below are the steps to run this application on your windows system.
 
 Install Python.
 
-** Go to command prompt - "Windows + R" type CMD and press enter.**
+**Go to command prompt - "Windows + R" type CMD and press enter.**
 
 Create a new directory "mkdir IMS"
 
-* * CD IMS * *
+_CD IMS_
 
 Create an environment for "Virtual Python Runtime".
 
-* * python -m venv env * *
+_python -m venv env_
 
-Download the source and extract in the IMS folder.
+**Download the source and extract in the IMS folder.**
 
 Go in the virtual environment folder.
 
-cd env.
+_cd env_
 
 Install the dependencies
 
-run - pip install -r requirements.txt
+_run - pip install -r requirements.txt_
 
-Activate the python environment.
+**Activate the python environment.**
 
-scripts\activate
+_scripts\activate_
 
-Run the server.
+**Run the server.**
 
-python manage.py runserver
+_python manage.py runserver_
+
+Launch the local host.... and enjoy !!!!!
