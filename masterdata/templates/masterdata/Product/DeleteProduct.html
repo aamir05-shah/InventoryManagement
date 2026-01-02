@@ -1,0 +1,20 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Delete Product {% endblock title %} 
+
+{% block content %}
+
+<div class="row">
+    <form method="post" class="col-sm-11 col-md-4 mx-auto mt-5">
+        {% csrf_token %}
+        <h1 class="fw-light">Are you sure you want to delete {{ prod.name }}?</h1>
+        <p class="fw-light">This cannot be undone</p>
+        <div>
+            <button class="btn btn-danger">Delete</button>
+            <a href="{% url 'ProductList'%}" class="btn btn-info ml-4">Cancel</a>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
