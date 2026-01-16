@@ -1,13 +1,19 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
-{% block title %} Login in IMS {% endblock title %} 
+{% block title %} Login in IMS {% endblock title %}
 {% block content %}
 <div class="col-11 col-md-4 mx-auto mt-5 ">
     <h1>Login</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        <div id="div_id_username" class="mb-3"> 
+            <label for="id_username" class="form-label requiredField"> Username* </label>
+             <input type="text" name="username" autofocus class="textinput form-control" required id="id_username"> 
+        </div>
+        <div id="div_id_password" class="mb-3"> 
+            <label for="id_password" class="form-label requiredField"> Password* </label>
+            <input type="password" name="password" class="passwordinput form-control" required id="id_password"> 
+        </div>
         <button class="btn btn-primary" type="submit">Login</button>
     </form>
     <small class="text-muted">Need an account? <a href="{% url 'signup' %}" class="ml-2">Sign up</a></small>
