@@ -1,0 +1,57 @@
+{% extends 'dashboard/base.html' %}
+{% block title %} Supplier List {% endblock title %} 
+{% block content %}
+<div class="row">
+    <h4 align="center">Supplier List</h4>
+
+    <div class="col-md-10 col-12 mx-auto mt-2">
+        <div class="d-flex justify-content-end">
+            <a href="{% url 'CreateSupplier' %}" class="btn btn-success">Create</a>
+        </div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Contact Person </th>
+                    <th scope="col"> Moblie No </th>
+                    <th scope="col"> Created By </th>
+                    <th scope="col"> Actions </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% if suppList|length == 0 %}
+                <tr>
+                    <th scope="row">-</th>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                        
+                </tr>
+                {% endif %}
+                {% for supp in suppList %}
+                <tr>
+                    <th scope="row">{{ supp.id }}</th>
+                        <td>{{ supp.name }}</td>
+                        <td>{{ supp.contactPerson }}</td>
+                        <td>{{ supp.mobileNo }}</td>
+                        <td>{{ supp.createdBy }}</td>
+                        <td>
+                            <a href="{% url 'EditSupplier' supp.id %}" class="btn btn-info btn-sm">Edit</a>
+                            <a href="{% url 'DeleteSupplier' supp.id %}" class="btn btn-warning btn-sm">Delete</a>
+                        </td>
+                        
+                </tr>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock content %}

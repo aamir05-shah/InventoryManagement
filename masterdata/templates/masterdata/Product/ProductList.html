@@ -1,0 +1,60 @@
+{% extends 'dashboard/base.html' %}
+{% block title %} Product List {% endblock title %} 
+{% block content %}
+<div class="row">
+    <h4 align="center">Product List</h4>
+
+    <div class="col-md-10 col-12 mx-auto mt-2">
+        <div class="d-flex justify-content-end">
+            <a href="{% url 'CreateProduct' %}" class="btn btn-success">Create</a>
+        </div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> Bar Code </th>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Category </th>
+                    <th scope="col"> Stock</th>
+                    <th scope="col"> UoM </th>
+                    <th scope="col"> Sales Price </th>
+                    <th scope="col"> Actions </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% if prodList|length == 0 %}
+                <tr>
+                    <th scope="row">-</th>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                        
+                </tr>
+                {% endif %}
+                {% for prod in prodList %}
+                <tr>
+                    <th scope="row">{{ prod.barCode }}</th>
+                        <td>{{ prod.name }}</td>
+                        <td>{{ prod.productCategory}}</td>
+                        <td>{{ prod.currentStock}}</td>
+                        <td>{{ prod.unitOfMeasure }}</td>
+                        <td>{{ prod.salesPrice}}</td>
+                        <td>
+                            <a href="{% url 'EditProduct' prod.id %}" class="btn btn-info btn-sm">Edit</a>
+                            <a href="{% url 'DeleteProduct' prod.id %}" class="btn btn-warning btn-sm">Delete</a>
+                        </td>
+                        
+                </tr>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock content %}
