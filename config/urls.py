@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('dashboard.urls') ),
     path('admin/', admin.site.urls),
     path('data/',include('masterdata.urls')),
+    path('transactions/',include('transactions.urls')),
 ]

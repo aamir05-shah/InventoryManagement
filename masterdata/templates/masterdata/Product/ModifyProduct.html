@@ -1,7 +1,7 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title %} Modify Product {% endblock title %} 
+{% block title %} {{ BtnText }} Product {% endblock title %} 
 {% block content %}
 <div class="row">
     <div class="col-11 col-md-4 mx-auto mt-5">
@@ -10,7 +10,7 @@
             {% csrf_token %}
             {{ form|crispy }}
             <div class="mt-3">
-              <button class="btn btn-primary" type="submit">Create</button>
+              <button class="btn btn-primary" type="submit">{{ BtnText }}</button>
               <a href="{% url 'ProductList' %}" class="btn btn-warning">Cancel</a>
             </div>
         </form>

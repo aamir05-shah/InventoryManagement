@@ -29,6 +29,8 @@ class SignUpView(View):
         
         return render(request, 'dashboard/signup.html', {'form': form})
     
+    
+    
 class UC(View):
      
      def get(self, request):

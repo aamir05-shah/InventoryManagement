@@ -43,7 +43,7 @@
                         <td>{{ prod.unitOfMeasure }}</td>
                         <td>{{ prod.salesPrice}}</td>
                         <td>
-                            <a href="{% url 'EditProduct' prod.id %}" class="btn btn-info btn-sm">Edit</a>
+                            <a href="{% url 'UpdateProduct' prod.id %}" class="btn btn-info btn-sm">Edit</a>
                             <a href="{% url 'DeleteProduct' prod.id %}" class="btn btn-warning btn-sm">Delete</a>
                         </td>
                         

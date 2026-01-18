@@ -21,12 +21,12 @@ class Supplier(models.Model):
 
 class Customer(models.Model):
 
-    name = models.CharField(max_length=200)
-    mobileNo = models.IntegerField()
+    name        = models.CharField(max_length=200)
+    mobileNo    = models.IntegerField()
     companyName = models.CharField(max_length=200, blank=True , null=True)
-    officeNo =  models.IntegerField(blank=True , null=True)
-    createdOn = models.DateTimeField(auto_now_add=True)
-    createdBy = models.ForeignKey(User , on_delete=models.SET_NULL , blank=True , null=True)
+    officeNo    =  models.IntegerField(blank=True , null=True)
+    createdOn   = models.DateTimeField(auto_now_add=True)
+    createdBy   = models.ForeignKey(User , on_delete=models.SET_NULL , blank=True , null=True)
 
     class Meta:
         verbose_name_plural = 'Customers'
@@ -49,7 +49,7 @@ class ProductCategory(models.Model):
 class Product(models.Model):
     
     unitOfMeasureChoices = { "PCS" : "Pieces",
-                            " MTR" : "Meter" }
+                             "MTR" : "Meter" }
     
     name               = models.CharField(max_length=250)
     barCode            = models.CharField(unique=True,max_length=16,blank = False,null=False)

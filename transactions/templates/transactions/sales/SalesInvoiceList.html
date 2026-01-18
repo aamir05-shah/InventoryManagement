@@ -1,0 +1,74 @@
+{% extends 'dashboard/base.html' %}
+{% block title %} Sales Invoice List 
+
+{% endblock title %} 
+{% block content %}
+<div class="row">
+    <h4 align="center">Sales Invoice List</h4>
+
+    <div class="col-md-10 col-12 mx-auto mt-2">
+        <div class="d-flex justify-content-end">
+            <a href="{% url 'sales' %}" class="btn btn-success">Create</a>
+        </div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Moblie No </th>
+                    <th scope="col"> Amount Paid </th>
+                    <th scope="col"> Discount </th>
+                    <th scope="col"> Payment Method </th>
+                    <th scope="col"> Actions </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% if salesList|length == 0 %}
+                <tr>
+                    <th scope="row">-</th>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                       
+                        
+                </tr>
+                {% endif %}
+                {% for sales in salesList %}
+                <tr>
+                    <th scope="row">{{ sales.id }}</th>
+                        <td>
+                            {% if sales.customer %}
+                                {{sales.customer}}
+                            {% else %}
+                                {{ sales.one_time_name  }}
+                            {%endif%}
+                        </td>
+                        <td>
+                            {% if sales.customer %}
+                                {{sales.customer.mobileNo}}
+                            {% else %}
+                               {{ sales.one_time_number }}
+                            {%endif%}
+                            </td>
+                        <td>{{ sales.grossAmount  }}</td>
+                        <td>{{ sales.discount }}</td>
+                        <td>{{ sales.paymentMode}}</td>
+                        <td>
+                        <a href="{% url 'DeleteSalesInvoiceListItem' sales.id %}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                        
+                </tr>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock content %}

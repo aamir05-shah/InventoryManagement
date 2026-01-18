@@ -38,7 +38,7 @@
                         <td>{{ cust.companyName }}</td>
                         <td>{{ cust.createdBy }}</td>
                         <td>
-                            <a href="{% url 'EditCustomer' cust.id %}" class="btn btn-info btn-sm">Edit</a>
+                            <a href="{% url 'UpdateCustomer' cust.id %}" class="btn btn-info btn-sm">Edit</a>
                             <a href="{% url 'DeleteCustomer' cust.id %}" class="btn btn-warning btn-sm">Delete</a>
                         </td>
                         
